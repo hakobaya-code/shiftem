@@ -1,0 +1,22 @@
+databases:
+  - name: shiftem_DB
+    databaseName: shiftem_db
+    user: shiftem
+    region: singapore
+
+services:
+  - type: web
+    name: shiftem
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: shiftem_DB
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+
