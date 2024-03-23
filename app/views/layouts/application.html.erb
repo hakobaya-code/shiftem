@@ -11,15 +11,7 @@
   </head>
 
   <body>
-    <header class="navbar">
-      <%= link_to image_tag('logo.png', alt: 'Logo', id: 'logo'), home_pages_home_path %>
-      <div class="spacer"></div>  
-      <ul>
-        <li><%= link_to "Home", home_pages_home_path %></li>
-        <li><%= link_to "Member", home_pages_member_path %></li>
-        <li><%= link_to "Admin", home_pages_admin_path %></li>
-      </ul>
-    </header>
+    <%= render 'layouts/header' %>
     <div class="container">
       <div class="contents">
         <%= yield %>
