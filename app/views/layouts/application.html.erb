@@ -11,6 +11,18 @@
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <h1>Shiftem</h1>
+          <nav>
+          <ul>
+            <li><%= link_to "Home", home_pages_home_path %></li>
+            <li><%= link_to "Member", home_pages_member_path %></li>
+            <li><%= link_to "Admin", home_pages_admin_path %></li>
+          </ul>
+          </nav>
+      </div>
+    </header>
 
       <%= yield %>
     </div>
