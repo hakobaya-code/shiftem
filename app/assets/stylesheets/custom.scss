@@ -1,0 +1,81 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/* universal */
+
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	overflow: auto;
+}
+  
+textarea {
+	resize: vertical;
+}
+  
+.center {
+	text-align: center;
+}
+  
+.center h1 {
+	margin-bottom: 10px;
+}
+
+
+.navbar {
+	display: flex;
+	align-items: center;
+	height: 60px;
+	padding: 0 20px; /* 左右のパディング */
+	background-color: rgba(213, 243, 255, 1);
+	position: fixed;
+	width: 100%; /* ヘッダーの幅を画面いっぱいに */
+	position: fixed;
+	top: 0; /* 上端に固定 */
+	left: 0; /* 左端に固定 */
+	right: 0; /* 右端に固定 */
+	z-index: 1000;
+	border-radius: 0; /* 角の丸みを取り除く */
+}
+
+.spacer {
+	flex-grow: 1; /* 可能な限りの空間を取る */
+}
+
+#logo {
+	height: 50px; /* ロゴの高さ */
+	width: auto; /* 幅は自動調整 */
+	opacity:0.8;
+}
+
+.navbar ul {
+	display: flex;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	float: right;
+	color: white;
+	align-items: center;
+	font-size: 18px;
+}
+
+.navbar ul li {
+	margin-right: 20px;
+}
+
+.navbar li a {
+	color: rgba(7, 40, 72, 0.7);
+	text-decoration: none;
+	transition: color 0.4s;
+}
+
+.navbar li a:hover {
+	color: rgba(7, 40, 72, 1);
+}
+
+.container {
+	padding-top: 30px;
+}

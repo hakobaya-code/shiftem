@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>shiftem</title>
+    <title><%= page_title %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar">
+      <%= link_to image_tag('logo.png', alt: 'Logo', id: 'logo'), home_pages_home_path %>
+      <div class="spacer"></div>  
+      <ul>
+        <li><%= link_to "Home", home_pages_home_path %></li>
+        <li><%= link_to "Member", home_pages_member_path %></li>
+        <li><%= link_to "Admin", home_pages_admin_path %></li>
+      </ul>
+    </header>
+    <div class="container">
+      <div class="contents">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
