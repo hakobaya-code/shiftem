@@ -4,7 +4,18 @@
 		<title>Home | Shiftem</title>
 	</head>
 	<body>
-		<h1>HOME</h1>
+		<div class="container">
+			<h1>HOME</h1>
+			<header>
+	  			<nav>
+					<ul>
+						<li><%= link_to "Home", home_pages_home_path %></li>
+						<li><%= link_to "Member", home_pages_member_path %></li>
+						<li><%= link_to "Admin", home_pages_admin_path %></li>
+					</ul>
+	  			</nav>
+			</header>
+  		</div>
 		
 		<p>
 			This is the home page for the
