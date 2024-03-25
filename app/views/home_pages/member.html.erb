@@ -2,10 +2,11 @@
 <div class="container">
 	<h1>Member</h1>
 	<p>
-		This is the home page for the
-		<a href="https://shiftem.onrender.com/">Shiftem</a>
+		<%= form_tag(attendances_path, method: :post) do %>
+			<%= submit_tag "出勤", name: "attendance_type", value: "attendance" %>
+			<%= submit_tag "休憩", name: "attendance_type", value: "break_start" %>
+			<%= submit_tag "戻り", name: "attendance_type", value: "break_end" %>
+			<%= submit_tag "退勤", name: "attendance_type", value: "leave" %>
+		<% end %>
 	</p>
-	<h2>
-		従業員用ページです
-	</h2>
 </div>
