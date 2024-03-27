@@ -1,4 +1,6 @@
 class HomePagesController < ApplicationController
+  before_action :redirect_based_on_authentication, except: [:home]
+  
   def home
     @page_title = "Home"
   end
@@ -9,5 +11,20 @@ class HomePagesController < ApplicationController
 
   def member
     @page_title = "Member"
+    @user = current_user
+  end
+
+
+  private
+
+  def redirect_based_on_authentication
+    if !user_signed_in?
+      redirect_to login_path
+      return
+    end
+
+    if action_name == 'home' && user_signed_in?
+      redirect_to member_path
+    end
   end
 end
