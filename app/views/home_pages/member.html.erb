@@ -9,4 +9,5 @@
       <%= submit_tag "退勤", name: "attendance_type", value: "leave" %>
     <% end %>
   </p>
+  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
 </div>
