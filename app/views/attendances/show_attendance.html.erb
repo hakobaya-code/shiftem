@@ -1,7 +1,9 @@
+<%= render 'layouts/headerhome' %>
+
 <div class="container">
-  <h1>出勤記録</h1>
-  <p><%= @message %></p>
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
-  <%= link_to "マイページに戻る", @path %>
+  <h2>出勤記録</h2>
+  <h3><%= @message %></h3>
+  <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
+  <%= link_to "マイページに戻る", @path, class: "btn btn-logout" %>
 
 </div>

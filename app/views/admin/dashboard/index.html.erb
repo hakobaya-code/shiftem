@@ -1,8 +1,8 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
 
-	<h2>管理者ページ</h2>
-
+	<h2><%= current_user.name %></h2>
+	<p>adminモード</p>
 	<%= render 'layouts/attendanceform' %>
 
 	<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
