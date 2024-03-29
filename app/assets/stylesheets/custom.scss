@@ -42,7 +42,7 @@ textarea {
 	display: flex;
 	align-items: center;
 	height: 80px;
-	padding: 0 20px;
+	padding: 0 10px;
 	background-color: $navbar-bg-color;
 	position: fixed;
 	width: 100%;
@@ -51,6 +51,7 @@ textarea {
 	right: 0; // 右端に固定
 	z-index: 1000;
 	border-radius: 0; // 角の丸みを取り除く
+	border-bottom: 3px double rgba(52, 73, 94, 0.6);
 
 	.spacer {
 		flex-grow: 1; // 可能な限りの空間を取る
@@ -73,7 +74,7 @@ textarea {
 		font-size: 20px;
 
 		li {
-			margin-right: 30px;
+			margin-right: 20px;
 
 			a {
 				color: $navbar-text-color;
@@ -90,6 +91,7 @@ textarea {
 
 .container {
 	padding-top: 30px;
+	text-align: center;
 }
 
 .debug_dump {

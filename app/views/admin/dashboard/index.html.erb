@@ -4,11 +4,11 @@
 <h2>管理者ページ</h2>
 
 <%= form_tag(attendances_path, method: :post) do %>
-	<%= submit_tag "attendance", name: "attendance_type", value: "出勤" %>
-	<%= submit_tag "break_start", name: "attendance_type", value: "休憩" %>
-	<%= submit_tag "break_end", name: "attendance_type", value: "戻り" %>
-	<%= submit_tag "leave", name: "attendance_type", value: "退勤" %>
-<% end %>
+	<%= submit_tag "attendance", name: "attendance_type", value: "0" %>
+	<%= submit_tag "break_start",name: "attendance_type", value: "1" %>
+	<%= submit_tag "break_end", name: "attendance_type", value: "2" %>
+	<%= submit_tag "leave", name: "attendance_type", value: "3" %>
+  <% end %>
 
 <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
 
