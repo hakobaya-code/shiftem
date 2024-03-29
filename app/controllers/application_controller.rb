@@ -15,7 +15,12 @@ class ApplicationController < ActionController::Base
 		else
 		  member_path # 一般ユーザーのリダイレクト先
 		end
-	  end
+	end
+
+	def after_sign_out_path_for(resource_or_scope)
+		root_path # ここにリダイレクト先のパスを指定
+	end
+	
 end
 
 # configure_permitted_parametersに関して、sing_upとsign_inのパラメータを許可している。

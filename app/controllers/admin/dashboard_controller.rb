@@ -4,9 +4,6 @@ class Admin::DashboardController < ApplicationController
   def index
   end
 
-  def new
-  end
-  
   private
 
   def require_admin
