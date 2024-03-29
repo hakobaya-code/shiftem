@@ -1,8 +1,9 @@
 # README
 
 Shiftemは、個人経営の勤怠管理アプリケーションです
+<br>
 
-## 作成時の内容
+**作成時の内容**
 
 https://gorgeous-pike-0dc.notion.site/Shiftem-39b4b0ef57dd47e298c1aa18bbe7e15f?pvs=4
 
@@ -10,13 +11,13 @@ https://gorgeous-pike-0dc.notion.site/Shiftem-39b4b0ef57dd47e298c1aa18bbe7e15f?p
 
 https://shiftem.onrender.com/
 
-
+<br>
 **紹介記事**
 
 準備中
+<br>
 
-
-### 使用技術
+**使用技術**
 
 フロントエンド
 react-router-dom(仮) 6.22.3
