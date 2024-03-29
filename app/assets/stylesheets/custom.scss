@@ -1,10 +1,11 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$navbar-bg-color: #ecf4f4;
-$navbar-text-color: #34495e;
-$navbar-text-hover-color: rgb(3, 5, 7);
-$logo-height: 100px;
+$navbar-bg-color: rgba(236, 244, 244, 1),;
+$navbar-text-color: rgba(52, 73, 94, 0.8);
+$navbar-text-hover-color: rgb(20, 27, 35);
+$logo-height: 60px;
+$font-family: 'Tsukushi A Round Gothic', 'Yo One Sans Linear Regular', 'Roboto', sans-serif;
 
 /* universal */
 
@@ -12,6 +13,8 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: #ecf4f4;
+	font-family: $font-family;
+	color: $navbar-text-color;
 }
 
 section {
@@ -33,7 +36,7 @@ textarea {
 .navbar {
 	display: flex;
 	align-items: center;
-	height: 100px;
+	height: 80px;
 	padding: 0 20px;
 	background-color: $navbar-bg-color;
 	position: fixed;
