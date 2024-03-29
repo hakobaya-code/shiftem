@@ -2,7 +2,7 @@
 
 <div class="container">
   <h2>出勤記録</h2>
-  <h3><%= @message %></h3>
+  <%= @message %>
   <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
   <%= link_to "マイページに戻る", @path, class: "btn btn-logout" %>
 
