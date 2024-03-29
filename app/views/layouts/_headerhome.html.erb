@@ -2,8 +2,8 @@
 	<%= link_to image_tag('logo.png', alt: 'Logo', id: 'logo'), home_path %>
 	<div class="spacer"></div>
 	<ul>
-		<li><%= button_to "Home", destroy_user_session_path, method: :delete %></li>
-		<li><%= link_to "Member", member_path %></li>
-		<li><%= link_to "Admin", new_user_session_path %></li>
+		<li lang="en"><%= link_to "Home", home_path%></li>
+		<li lang="en"><%= link_to "Member", member_path %></li>
+		<li lang="en"><%= link_to "Admin", new_user_session_path %></li>
 	</ul>
 </header>

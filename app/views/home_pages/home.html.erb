@@ -1,7 +1,14 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
 	<h1>Home</h1>
-	<h2>勤怠管理システムです</h2>
-	<%= link_to "従業員", member_path, class: "btn btn-primary" %>
-	<%= link_to "管理者", new_user_session_path, class: "btn btn-primary" %>
+
+	<% if user_signed_in? %>
+		<!-- ログインしている場合、ユーザー名とログアウトボタンを表示 -->
+		<h2><%= current_user.name %>さんがログイン中です</h2>
+		<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+  	<% else %>
+		<!-- ログインしていない場合、従業員と管理者のリンクを表示 -->
+		<%= link_to "従業員", member_path, class: "btn btn-primary" %>
+		<%= link_to "管理者", new_user_session_path, class: "btn btn-primary" %>
+  <% end %>
 </div>
