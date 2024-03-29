@@ -2,11 +2,14 @@
 <div class="container">
   <h1>Member</h1>
   <p>
+  <script>
+    alert("Hello");
+  </script>
     <%= form_tag(attendances_path, method: :post) do %>
-      <%= submit_tag "出勤", name: "attendance_type", value: "attendance" %>
-      <%= submit_tag "休憩", name: "attendance_type", value: "break_start" %>
-      <%= submit_tag "戻り", name: "attendance_type", value: "break_end" %>
-      <%= submit_tag "退勤", name: "attendance_type", value: "leave" %>
+      <%= submit_tag "attendance", name: "attendance_type", value: "出勤" %>
+      <%= submit_tag "break_start", name: "attendance_type", value: "休憩" %>
+      <%= submit_tag "break_end", name: "attendance_type", value: "戻り" %>
+      <%= submit_tag "leave", name: "attendance_type", value: "退勤" %>
     <% end %>
   </p>
   <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>

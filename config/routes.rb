@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get "/admin", to: "home_pages#admin", as: 'admin'
   get "/member", to: "home_pages#member", as: 'member'
   get "/signup", to: "users#new", as: 'signup'
-  get '/dashboard', to: 'dashboard#dashboard', as: :dashboard
-  get '/attendance', to: 'attendances#create', as: :attendance
+  get '/dashboard', to: 'dashboard#dashboard', as: 'dashboard'
+  get '/attendance', to: 'attendances#create', as: 'attendance'
+  post '/sognup', to: 'devise/sessions#create', as: 'sign_up'
 
   resources :users
   resources :attendances, only: [:create]
