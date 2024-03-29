@@ -4,8 +4,10 @@
 
 	<% if user_signed_in? %>
 		<!-- ログインしている場合、ユーザー名とログアウトボタンを表示 -->
-		<h2><%= current_user.name %>さんがログイン中です</h2>
-		<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
+		<br>
+		<h3><%= current_user.name %>さんがログイン中です</h3>
+		<br>
+		<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
   	<% else %>
 		<!-- ログインしていない場合、従業員と管理者のリンクを表示 -->
 		<%= link_to "従業員", member_path, class: "btn btn-home" %>
