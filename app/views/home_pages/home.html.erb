@@ -1,6 +1,6 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
-	<h1 lang:"en">Home</h1>
+	<h1 lang="en">Home</h1> <!-- lang属性の指定方法も修正しました（lang="en"）-->
 
 	<% if user_signed_in? %>
 		<!-- ログインしている場合、ユーザー名とログアウトボタンを表示 -->
@@ -10,5 +10,5 @@
 		<!-- ログインしていない場合、従業員と管理者のリンクを表示 -->
 		<%= link_to "従業員", member_path, class: "btn btn-home" %>
 		<%= link_to "管理者", new_user_session_path, class: "btn btn-home" %>
-  <% end %>
+  	<% end %>
 </div>
