@@ -1,6 +1,8 @@
 <% resource_class = User %>
 <% resource_name ||= :user %>
 
+<p>セキュリティに自信ないため名前プラス誕生日のような形で普段使わないパスワードを設定してください</p>
+
 <%- if controller_name != 'sessions' %>
   <%= link_to "Log in", new_session_path(resource_name) %><br />
 <% end %>
