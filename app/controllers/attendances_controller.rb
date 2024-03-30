@@ -22,8 +22,11 @@ class AttendancesController < ApplicationController
 			@path = admin_admin_page_path 
 		  else
 			@path = member_path 
-		  end
-	  render 'show_attendance', status: 303
+		end
+		
+		@user = current_user
+		@logs = current_user.attendance_logs
+		render 'show_attendance', status: 303
 	end
 end
   

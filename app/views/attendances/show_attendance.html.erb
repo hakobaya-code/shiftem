@@ -3,6 +3,43 @@
 <div class="container">
   <h2>出勤記録</h2>
   <%= @message %>
+
+  <table class="attendance-table">
+    <thead>
+      <tr>
+        <th>出勤</th>
+        <th>休憩</th>
+        <th>戻り</th>
+        <th>退勤</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @logs.each do |log| %>
+        <% if @user.attendance_logs.last.attendance_type == 0 %> 
+          <tr>
+            <td><%= log.created_at.strftime("%H:%M:%S") %></td>
+          </tr>
+        <% elsif @user.attendance_logs.last.attendance_type == 1 %>
+          <tr>
+            <td><%= log.created_at.strftime("%H:%M:%S") %></td>
+          </tr>
+        <% elsif @user.attendance_logs.last.attendance_type == 2 %>
+          <tr>
+            <td><%= log.created_at.strftime("%H:%M:%S") %></td>
+          </tr>
+        <% elsif @user.attendance_logs.last.attendance_type == 3 %>
+          <tr>
+            <td><%= log.created_at.strftime("%H:%M:%S") %></td>
+          </tr>
+        <% else %>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h4>今月の給料は</h4> <h4>円です</h4>
+
+
   <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
   <%= link_to "マイページに戻る", @path, class: "btn btn-logout" %>
 
