@@ -1,18 +1,5 @@
 class AttendancesController < ApplicationController
 	before_action :authenticate_user!
-
-	def show_monthly_logs
-		@year = params[:year] || Time.zone.now.year
-		@month = params[:month] || Time.zone.now.month
-	
-		if @year.to_i.between?(1900, 2100) && @month.to_i.between?(1, 12)
-		  start_date = Date.new(@year.to_i, @month.to_i, 1)
-		  end_date = start_date.end_of_month
-		  @attendance_logs = current_user.attendance_logs.where(created_at: start_date..end_date).order(:created_at)
-		else
-		  redirect_to root_path, alert: '指定された年月が無効です。'
-		end
-	end
   
 	def index
 		@year = params[:year] || Time.zone.now.year
@@ -43,6 +30,8 @@ class AttendancesController < ApplicationController
 		  flash[:alert] = "不明な操作です"
 		end
 	  
+		@user = current_user
+		@next_action = current_user.next_attendance_action
 		# リダイレクト先の設定
 		redirect_path = current_user.admin? ? admin_admin_page_path : member_path
 	  

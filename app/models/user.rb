@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  	# Include default devise modules. Others available are:
-  	# :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+	has_many :attendance_logs
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 	before_save { self.email = email.downcase }
@@ -9,8 +8,20 @@ class User < ApplicationRecord
 	validates :email, presence: true, length: { maximum: 255 },
 					  format: { with: VALID_EMAIL_REGEX },
 					  uniqueness: { case_sensitive: false }
-	# has_secure_password
-	# validates :password, presence: true, length: { minimum: 6 }
-	has_many :attendance_logs
+
+	def next_attendance_action
+    last_log = attendance_logs.last
+	return :attendance unless last_log
+
+	if last_log.attendance?
+		:break_or_leave
+	  elsif last_log.break_start?
+		:break_end
+	  elsif last_log.break_end?
+		:leave
+	  else
+		:none
+	end
+  end
 end
   
