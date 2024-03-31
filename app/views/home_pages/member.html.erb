@@ -1,7 +1,6 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
-  <h2><%= current_user.name %></h2>
-  
-  <%= render 'layouts/attendanceform' %>
+  <h2><%= current_user.name %></h2> 
+  <%= render 'layouts/attendanceform', next_action: @next_action %>
   <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
 </div>

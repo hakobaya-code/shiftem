@@ -15,8 +15,8 @@
       <tr>
         <td><%= day %></td>
         <% [0, 1, 2, 3].each do |type| %>
-          <% log = @attendance_logs.select { |l| l.created_at.day == day && l.attendance_type == type }.first %>
-          <td><%= log.present? ? log.created_at.strftime("%H:%M:%S") : "-" %></td>
+          <% log = @attendance_logs.select { |l| l.created_at.in_time_zone("Asia/Singapore").to_date.day == day && l.attendance_type == type }.first %>
+          <td><%= log.present? ? log.created_at.strftime("%H:%M:%S") : " " %></td>
         <% end %>
       </tr>
     <% end %>
