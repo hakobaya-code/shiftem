@@ -8,5 +8,5 @@
   
   <%= render 'layouts/attendanceform', next_action: @next_action %>
 
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
 </div>

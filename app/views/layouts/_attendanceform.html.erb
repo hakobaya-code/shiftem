@@ -1,3 +1,5 @@
+<%= link_to '出勤情報', attendance_path, class: "btn btn-logout" %>
+
 <%= form_tag(attendances_path, method: :post) do %>
 	<%= button_tag '出勤', 
 				   type: 'submit', 
@@ -26,5 +28,8 @@
 				   value: "3", 
 				   class: "btn btn-attendance btn-3",
 				   disabled: !(local_assigns[:next_action] == :break_or_leave || local_assigns[:next_action] == :leave) %>
-  <% end %>
+	<br>
+	<%= button_to 'やり直し', redo_attendance_path, method: :post, class: "btn btn-logout" %>
+	<br>
+<% end %>
   
