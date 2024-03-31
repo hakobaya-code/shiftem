@@ -26,8 +26,9 @@ class AttendancesController < ApplicationController
 
 	def create
 		attendance_type = params[:attendance_type].to_i
-		current_user.attendance_logs.create(attendance_type: attendance_type, created_at: Time.zone.now) # created_atを明示的に設定する必要はありませんが、明示的な例としています。
-		
+		current_user.attendance_logs.create(attendance_type: attendance_type, created_at: Time.zone.now) 
+
+
 		# Flashメッセージの設定
 		case attendance_type
 		when 0
@@ -56,5 +57,8 @@ class AttendancesController < ApplicationController
 		# show_attendance ビューへの変数を渡す
 		render 'show_attendance', status: 303
 	end
+
+
+
 end
   
