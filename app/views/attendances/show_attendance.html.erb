@@ -1,9 +1,14 @@
 <%= render 'layouts/headerhome' %>
 
 <div class="container">
-  <h2>出勤記録</h2>
-  <%= @message %>
+  <h2>出勤記録</h2><br>
+  <% if flash[:notice] %>
+    <h3><%= flash[:notice] %></h3>
+  <% end %>
+  
+  <br>
   <%= render 'attendances/index' %>
+  
   
   <h4>今月の給料は</h4> <h4>円です</h4>
 
