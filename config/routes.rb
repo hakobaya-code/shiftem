@@ -36,4 +36,11 @@ Rails.application.routes.draw do
 
   resources :users
   resources :attendances, only: [:create, :index] 
+  resources :attendances do
+    post 'undo', on: :collection
+  end
+  post 'undo_attendance', to: 'attendances#undo'
+  post 'attendances/redo', to: 'attendances#redo', as: 'redo_attendance'
+
+  
 end
