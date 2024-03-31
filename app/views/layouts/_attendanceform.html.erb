@@ -1,6 +1,4 @@
 <%= form_tag(attendances_path, method: :post) do %>
-	
-	
 	<%= button_tag(type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0") do %>
 		出勤
 	<% end %>
@@ -14,6 +12,10 @@
 		退勤
 	<% end %>
 <% end %>
+
+<br>
+
+<%= link_to "出勤情報をみる", attendance_path, class: "btn btn-logout" %>
 
 
 <!-- なぜかこっちだと名前が表示されない
