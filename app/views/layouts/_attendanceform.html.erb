@@ -1,13 +1,30 @@
 <%= form_tag(attendances_path, method: :post) do %>
-	<%= button_tag '出勤', type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0" %>
-	<%= button_tag '休憩', type: 'submit', name: "attendance_type", value: "1", class: "btn btn-attendance btn-1" %>
-	<%= button_tag '戻り', type: 'submit', name: "attendance_type", value: "2", class: "btn btn-attendance btn-2" %>
-	<%= button_tag '退勤', type: 'submit', name: "attendance_type", value: "3", class: "btn btn-attendance btn-3" %>
+	<%= button_tag '出勤', 
+				   type: 'submit', 
+				   name: "attendance_type", 
+				   value: "0", 
+				   class: "btn btn-attendance btn-0",
+				   disabled: local_assigns[:next_action] != :attendance %>
+  
+	<%= button_tag '休憩', 
+				   type: 'submit', 
+				   name: "attendance_type", 
+				   value: "1", 
+				   class: "btn btn-attendance btn-1",
+				   disabled: local_assigns[:next_action] != :break_or_leave %>
+  
+	<%= button_tag '戻り', 
+				   type: 'submit', 
+				   name: "attendance_type", 
+				   value: "2", 
+				   class: "btn btn-attendance btn-2",
+				   disabled: local_assigns[:next_action] != :break_end %>
+  
+	<%= button_tag '退勤', 
+				   type: 'submit', 
+				   name: "attendance_type", 
+				   value: "3", 
+				   class: "btn btn-attendance btn-3",
+				   disabled: !(local_assigns[:next_action] == :break_or_leave || local_assigns[:next_action] == :leave) %>
   <% end %>
-
-<!-- なぜかこっちだと名前が表示されない
-	<%= submit_tag "attendance", name: "attendance_type", value: "0", class: "btn btn-attendance" %>
-	<%= submit_tag "break_start",name: "attendance_type", value: "1", class: "btn btn-attendance"%>
-	<%= submit_tag "break_end", name: "attendance_type", value: "2", class: "btn btn-attendance" %>
-	<%= submit_tag "leave", name: "attendance_type", value: "3", class: "btn btn-attendance" %>
--->
+  

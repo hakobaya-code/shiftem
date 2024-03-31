@@ -10,18 +10,18 @@ class User < ApplicationRecord
 					  uniqueness: { case_sensitive: false }
 
 	def next_attendance_action
-    last_log = attendance_logs.last
-	return :attendance unless last_log
+		last_log = attendance_logs.last
+		return :attendance unless last_log
 
-	if last_log.attendance?
-		:break_or_leave
-	  elsif last_log.break_start?
-		:break_end
-	  elsif last_log.break_end?
-		:leave
-	  else
-		:none
-	end
-  end
+		if last_log.attendance?
+			:break_or_leave
+		elsif last_log.break_start?
+			:break_end
+		elsif last_log.break_end?
+			:leave
+		else
+			:none
+		end
+  	end
 end
   
