@@ -18,6 +18,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'dashboard/index', to: "dashboard#index", as: 'admin_page'
   end
+
+  resources :attendances, only: [:create] do
+    collection do
+      get 'show_monthly_logs'
+    end
+  end
   
   root "home_pages#home"
   get "/home", to: "home_pages#home", as: 'home'
@@ -29,5 +35,5 @@ Rails.application.routes.draw do
   post '/sognup', to: 'devise/sessions#create', as: 'sign_up'
 
   resources :users
-  resources :attendances, only: [:create]
+  resources :attendances, only: [:create, :index] 
 end

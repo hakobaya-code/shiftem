@@ -1,0 +1,24 @@
+<h2><%= @year %>年<%= @month %>月の出勤ログ</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>日付</th>
+      <th>出勤</th>
+      <th>休憩</th>
+      <th>戻り</th>
+      <th>退勤</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% (1..Time.days_in_month(@month.to_i, @year.to_i)).each do |day| %>
+      <tr>
+        <td><%= day %></td>
+        <% [0, 1, 2, 3].each do |type| %>
+          <% log = @attendance_logs.select { |l| l.created_at.day == day && l.attendance_type == type }.first %>
+          <td><%= log.present? ? log.created_at.strftime("%H:%M:%S") : "-" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
