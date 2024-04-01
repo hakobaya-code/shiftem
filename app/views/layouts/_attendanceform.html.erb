@@ -1,5 +1,8 @@
 <%= form_tag(attendances_path, method: :post) do %>
-	
+
+	<div class="clock"></div>
+	<%= javascript_pack_tag 'digital_clock' %>
+
 	
 	<%= button_tag(type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0") do %>
 		出勤
