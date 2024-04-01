@@ -1,9 +1,43 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
 
-	<h2><%= current_user.name %></h2>
-	<p>adminモード</p>
-	<%= render 'layouts/attendanceform' %>
+    <h2><%= current_user.name %></h2>
+    <p>adminモード</p>
+    <%= render 'layouts/attendanceform' %>
+    <br>
+    
+    <h1>All Users</h1>
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>名前</th>
+                <th>職種</th>
+                <th>状態</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+                <tr class="user-show">
+                    <td><%= user.name %></td>
+                    <td>
+                        <% if user.ptj == true %>
+                            アルバイト
+                        <% else %>
+                            社員
+                        <% end %>
+                    </td>
+                    <td>
+                        <% if user.retire == true %>
+                            退職
+                        <% else %>
+                            在籍中
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </table>
 
-	<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
+    <br>
+    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
 </div>

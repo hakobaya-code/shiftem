@@ -17,6 +17,10 @@ html, body {
 	background-color: $default-bg-color;
 	font-family: $font-family;
 	color: $navbar-text-color;
+	li {
+		list-style-type: none;
+	
+	}
 }
 
 :lang(en) {
@@ -212,6 +216,22 @@ textarea {
 	}
 	&:hover, &:focus {
 		color: $default-bg-color;
+	}
+}
+
+.user-show {
+	font-size: 20px;
+}
+
+.users-table, .attendance-table {
+	color: $navbar-text-color;
+	margin: 30px auto;
+	width: 50%;
+	border: 1px solid $navbar-text-color;
+	th, td{
+		border: 1px solid $navbar-text-color;
+		padding: 3px;
+		text-align: center;
 	}
 }
 
