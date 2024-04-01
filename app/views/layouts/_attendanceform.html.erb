@@ -1,6 +1,23 @@
 <%= link_to '出勤情報', attendance_path, class: "btn btn-logout" %>
 
 <%= form_tag(attendances_path, method: :post) do %>
+	<div class="clock"></div>
+	<%= javascript_pack_tag 'digital_clock' %>
+
+	
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0") do %>
+		出勤
+	<% end %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "1", class: "btn btn-attendance btn-1") do %>
+		休憩
+	<% end %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "2", class: "btn btn-attendance btn-2") do %>
+		戻り
+	<% end %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "3", class: "btn btn-attendance btn-3") do %>
+		退勤
+	<% end %>
+
 	<%= button_tag '出勤', 
 				   type: 'submit', 
 				   name: "attendance_type", 
@@ -31,5 +48,6 @@
 	<br>
 	<%= button_to 'やり直し', redo_attendance_path, method: :post, class: "btn btn-logout" %>
 	<br>
+
 <% end %>
   
