@@ -11,7 +11,7 @@ gem "devise", "~> 4.8"
 # gem "sprockets-rails", "3.4.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
-gem 'webpacker'
+# gem 'webpacker'
 # Use sqlite3 as the database for Active Record
 # gem "sqlite3", "~> 1.4"
 
