@@ -1,11 +1,10 @@
 <%= render 'layouts/headerhome' %>
 <div class="container">
 
-    <h2><%= current_user.name %></h2>
-    <p>adminモード</p>
-    <%= render 'layouts/attendanceform' %>
-    <br>
-    
+	<h2><%= current_user.name %></h2>
+	<p>adminモード</p>
+	<%= render 'layouts/attendanceform' %>
+
     <h1>All Users</h1>
     <table class="users-table">
         <thead>
@@ -13,6 +12,7 @@
                 <th>名前</th>
                 <th>職種</th>
                 <th>状態</th>
+                <th>時給</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +27,13 @@
                         <% end %>
                     </td>
                     <td>
+                        <%= user.wage %>
+                    </td>
+                    <td>
                         <% if user.retire == true %>
                             退職
                         <% else %>
-                            在籍中
+                            　
                         <% end %>
                     </td>
                 </tr>
@@ -39,5 +42,6 @@
     </table>
 
     <br>
-    <%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
+
+	<%= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-logout" %>
 </div>

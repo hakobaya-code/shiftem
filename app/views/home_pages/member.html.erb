@@ -5,9 +5,7 @@
   <% if flash[:notice] %>
     <p><%= flash[:notice] %></p>
   <% end %>
-  
-  <%= render 'layouts/attendanceform' %>
-  <%= button_to "ログアウト", destroy_user_session_path, method: :delete %>
+
 
   <%= render 'layouts/attendanceform', next_action: @next_action %>
 
