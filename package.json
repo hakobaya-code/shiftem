@@ -17,5 +17,8 @@
   },
   "scripts": {
     "build": "webpack --mode production"
+  },
+  "engines": {
+    "node": "16.13.2"
   }
 }
