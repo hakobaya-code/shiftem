@@ -41,6 +41,4 @@ Rails.application.routes.draw do
   end
   post 'undo_attendance', to: 'attendances#undo'
   post 'attendances/redo', to: 'attendances#redo', as: 'redo_attendance'
-
-  
 end

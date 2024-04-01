@@ -13,15 +13,19 @@ class User < ApplicationRecord
 		last_log = attendance_logs.last
 		return :attendance unless last_log
 
-		if last_log.attendance?
-			:break_or_leave
-		elsif last_log.break_start?
-			:break_end
-		elsif last_log.break_end?
-			:leave
+		case last_log.attendance_type
+		when 'attendance'
+		  :break_or_leave
+		when 'break_start'
+		  :break_end
+		when 'break_end'
+		  :leave
+		when 'leave'
+		  :attendance
 		else
-			:none
+		  nil
 		end
+	
   	end
 end
   
