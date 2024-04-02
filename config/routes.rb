@@ -16,7 +16,8 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get 'dashboard/index', to: "dashboard#index", as: 'admin_page'
+    get 'dashboard/index', to: 'dashboard#index', as: 'dashboard'
+    resources :users
   end
 
   resources :attendances, only: [:create] do

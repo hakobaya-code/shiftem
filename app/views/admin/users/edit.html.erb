@@ -1,0 +1,46 @@
+<h1>ユーザー編集</h1>
+
+
+<%= form_with(model: @user, local: true) do |form| %>
+  <%# フォームのフィールド %>
+<% end %>
+
+<%= form_with(model: [:admin, @user], local: true) do |form| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.email_field :email, id: :user_email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ptj %>
+    <%= form.check_box :ptj, id: :user_ptj %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wage %>
+    <%= form.number_field :wage, id: :user_wage %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "更新" %>
+  </div>
+<% end %>
+
+<%= link_to '戻る', admin_dashboard_path %>

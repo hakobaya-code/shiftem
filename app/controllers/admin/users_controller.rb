@@ -1,0 +1,43 @@
+class Admin::UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_admin
+
+  def index
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to admin_dashboard_path, notice: 'ユーザー情報を更新しました。'
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :email)
+  end
+
+  def check_admin
+    unless current_user.admin?
+      redirect_to root_path, alert: "You are not authorized to access this page."
+    end
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to admin_users_path, alert: 'ユーザーが見つかりません。'
+  end
+  
+end

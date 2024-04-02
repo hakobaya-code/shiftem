@@ -11,8 +11,9 @@
             <tr>
                 <th>名前</th>
                 <th>職種</th>
-                <th>状態</th>
                 <th>時給</th>
+                <th>状態</th>
+                <th>操作</th>
             </tr>
         </thead>
         <tbody>
@@ -35,6 +36,11 @@
                         <% else %>
                             　
                         <% end %>
+                    </td>
+                    <td>
+                    <%= link_to '詳細', admin_user_path(user), class: 'btn btn-logout' %>
+                    <%= link_to '編集', edit_admin_user_path(user), class: 'btn btn-logout' %>
+                    <%= link_to '削除', admin_user_path(user), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn btn-logout' %> 
                     </td>
                 </tr>
             <% end %>

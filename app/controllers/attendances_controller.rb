@@ -46,7 +46,7 @@ class AttendancesController < ApplicationController
 		@user = current_user
 		@next_action = current_user.next_attendance_action
 		# リダイレクト先の設定
-		redirect_path = current_user.admin? ? admin_admin_page_path : member_path
+		redirect_path = current_user.admin? ? admin_dashboard_path : member_path
 	  
 		# 特定の年月のログを取得し、created_atでソート
 		@year = params[:year].presence || Time.zone.now.year
@@ -63,16 +63,6 @@ class AttendancesController < ApplicationController
 	def redo
 		session[:user_state] = nil
 		redirect_to member_path, notice: 'やり直しを実行しました。'
-	end
-
-	def undo
-		last_log = current_user.attendance_logs.order(created_at: :desc).first
-		if last_log && last_log.created_at.today?
-		  flash[:notice] = "最新の操作を取り消しました。"
-		else
-		  flash[:alert] = "取り消しできる記録がありません。"
-		end
-		redirect_to member_path
 	end
 
 	private
