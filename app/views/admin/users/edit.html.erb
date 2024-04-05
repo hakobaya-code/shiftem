@@ -29,7 +29,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :ptj %>
+    <%= form.label :アルバイト %>
     <%= form.check_box :ptj, id: :user_ptj %>
   </div>
 
@@ -37,10 +37,16 @@
     <%= form.label :wage %>
     <%= form.number_field :wage, id: :user_wage %>
   </div>
-
+  
+  <div class="field">
+    <%= form.label :admin %>
+    <%= form.check_box :admin, id: :user_admin %>
+  </div>
+  
   <div class="actions">
     <%= form.submit "更新" %>
   </div>
-<% end %>
+  
+  <% end %>
 
 <%= link_to '戻る', admin_dashboard_path %>
