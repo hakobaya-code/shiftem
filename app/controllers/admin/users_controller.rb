@@ -21,13 +21,19 @@ class Admin::UsersController < ApplicationController
   end
 
   def destroy
+    @user.destroy
+    redirect_to admin_users_path, notice: 'ユーザーが正常に削除されました。'
   end
 
+  def update
+    if @user.update(user_params)
+      redirect_to admin_dashboard_path, notice: 'ユーザー情報を更新しました。'
+    else
+      render :edit
+    end
+  end
+  
   private
-
-  def user_params
-    params.require(:user).permit(:name, :email)
-  end
 
   def check_admin
     unless current_user.admin?
@@ -41,4 +47,9 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path, alert: 'ユーザーが見つかりません。'
   end
   
+  
+  def user_params
+    params.require(:user).permit(:name, :email, :ptj, :wage, :admin, :retire)
+  end
+
 end

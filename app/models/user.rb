@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	has_many :attendance_logs
+	has_many :attendance_logs, dependent: :destroy
   	devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 	before_save { self.email = email.downcase }

@@ -43,6 +43,11 @@
     <%= form.check_box :admin, id: :user_admin %>
   </div>
   
+  <div class="field">
+    <%= form.label :退職 %>
+    <%= form.check_box :retire, id: :user_retire %>
+  </div>
+
   <div class="actions">
     <%= form.submit "更新" %>
   </div>
