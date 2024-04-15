@@ -30,9 +30,3 @@
     <% end %>
   
 </table>
-
-<br>
-<h3>全出勤ログの確認：</h3>
-<% @attendance_logs.each do |log| %>
-  <p><%= log.created_at %> | <%= log.attendance_type %></p>
-<% end %>
