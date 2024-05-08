@@ -14,7 +14,7 @@ class AttendancesController < ApplicationController
 		@attendance_lm_logs = current_user.attendance_logs.for_month(last_month_year, last_month_month)
 		
 		@next_action = current_user.next_attendance_action
-	  end
+	end
 
 	def create
 		attendance_type = params[:attendance_type].to_i
@@ -24,6 +24,7 @@ class AttendancesController < ApplicationController
 			created_at: Time.zone.now
 		)
 
+		@wage = current_user.wage
 
 		if session[:retry] || current_user.attendance_logs.where("created_at >= ?", Date.today).empty?
 			# 出勤などの処理を行う

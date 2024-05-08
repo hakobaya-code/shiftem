@@ -24,14 +24,6 @@ class Admin::UsersController < ApplicationController
     @user.destroy
     redirect_to admin_users_path, notice: 'ユーザーが正常に削除されました。'
   end
-
-  def update
-    if @user.update(user_params)
-      redirect_to admin_dashboard_path, notice: 'ユーザー情報を更新しました。'
-    else
-      render :edit
-    end
-  end
   
   private
 

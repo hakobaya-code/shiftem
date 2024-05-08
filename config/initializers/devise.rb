@@ -1,6 +1,7 @@
 
 Devise.setup do |config|
 
+  # Deviseが送信するメールの宛先（パスワードリセット時など）
   config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   require 'devise/orm/active_record'
@@ -21,4 +22,7 @@ Devise.setup do |config|
   config.sign_out_via = :delete
   config.responder.error_status = :unprocessable_entity
   config.responder.redirect_status = :see_other
+
+  # ログイン状態を保持する期間を1週間に設定
+  config.remember_for = 1.week
 end

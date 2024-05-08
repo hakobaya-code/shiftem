@@ -2,18 +2,18 @@
 
 <%= form_tag(attendances_path, method: :post) do %>
 
-
+	<% next_action = current_user.next_attendance_action %>
 	
-	<%= button_tag(type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0") do %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "0", class: "btn btn-attendance btn-0", disabled: next_action != :attendance) do %>
 		出勤
 	<% end %>
-	<%= button_tag(type: 'submit', name: "attendance_type", value: "1", class: "btn btn-attendance btn-1") do %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "1", class: "btn btn-attendance btn-1", disabled: next_action != :break_or_leave) do %>
 		休憩
 	<% end %>
-	<%= button_tag(type: 'submit', name: "attendance_type", value: "2", class: "btn btn-attendance btn-2") do %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "2", class: "btn btn-attendance btn-2", disabled: next_action != :break_end) do %>
 		戻り
 	<% end %>
-	<%= button_tag(type: 'submit', name: "attendance_type", value: "3", class: "btn btn-attendance btn-3") do %>
+	<%= button_tag(type: 'submit', name: "attendance_type", value: "3", class: "btn btn-attendance btn-3", disabled: next_action != :break_or_leave) do %>
 		退勤
 	<% end %>
 

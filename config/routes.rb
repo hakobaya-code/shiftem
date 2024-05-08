@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   devise_scope :user do
+    # コントローラにdeviseが見当たらないのはgemにあるから
     get '/login', to: 'devise/sessions#new', as: 'login'
     post '/login', to: 'devise/sessions#create', as: 'sign_in'
     delete '/logout', to: 'devise/sessions#destroy', as: 'logout'
@@ -17,6 +18,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard/index', to: 'dashboard#index', as: 'dashboard'
+    resources :users, except: [:index]  # indexを除外
+    get 'users', to: 'dashboard#index', as: 'admin_dashboard_users'  # 新しいルーティングを追加
     resources :users
   end
 

@@ -16,7 +16,6 @@ class HomePagesController < ApplicationController
 
   def member
     @next_action = current_user.next_attendance_action
-    # その他の必要な処理
   end
 
   private
